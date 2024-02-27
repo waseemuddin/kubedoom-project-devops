@@ -1,6 +1,14 @@
-# Kube DOOM - 2023-24
-# Kube DOOM Project for learning purposes
-This is a fork of [storax/kubedoom](https://github.com/storax/kubedoom). I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.
+# Kube DOOM Project for Kubernetes learning purposes
+
+This repo is contain about the Kube Doom project for learning and implementing the Kubernetes and Docker
+
+The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus)& [storax/kubedoom](https://github.com/storax/kubedoom).
+
+ I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.
+
+ The following steps by step guide is to implement the KubeDoom Project
+
+ <b>Prequistics Requirements</b> 
 
 Install Kind quickly with:
 `./install-prereqs.sh`
@@ -15,7 +23,7 @@ This is a fork of the excellent
 slightly modified Doom, forked from https://github.com/gideonred/dockerdoom,
 which was forked from psdoom.
 
-
+# ![DOOM](assets/doom.jpg)
 ![kubedoom Diagram](assets/kubedoomdiagram.png)
 
 ## Running Locally
