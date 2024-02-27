@@ -74,12 +74,11 @@ Creating cluster "kind" ...
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
-# ![Kind Master and worker node ](assets/kindnode.png)
-
 kubectl cluster-info --context kind-kind
-
 Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
+# ![Kind Master and worker node ](assets/kindnode.png)
+
 
 Set your Kube context with: `kubectl cluster-info --context kind-kind`
 
@@ -95,13 +94,17 @@ namespace/kubedoom created
 deployment.apps/kubedoom created
 serviceaccount/kubedoom created
 clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
-```
+
 # ![kubedoom namespace](assets/kubedoom.png)
-
-
+```
 To connect run:  (Step -- 06)
+```
+
 ```console
+
 $ vncviewer viewer localhost:5900
+
+
 ```
 
 Kubedoom requires a service account with permissions to list all pods and delete
