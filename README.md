@@ -26,7 +26,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 4. [TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
-![kubedoom Diagram](assets/kubedoomdiagram.png)
+# ![kubedoom Diagram](assets/kubedoomdiagram.png)
 
 # ![DOOM](assets/doom.jpg)
 
