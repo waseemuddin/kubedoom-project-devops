@@ -127,14 +127,35 @@ Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to
 
 
 
-```
-To connect run:  (Step -- 06)
-```
+Step --- 04
+---------------------------------------------------------
 
+### Attaching a VNC Client  (Step -- 07)
+
+Now start a VNC viewer and connect to `localhost:5900`. The password is `idbehold`:
 ```console
+$ vncviewer viewer localhost:5901
+```
+You should now see DOOM! Now if you want to get the job done quickly enter the
+cheat `idspispopd` and walk through the wall on your right. You should be
+greeted by your pods as little pink monsters. Press `CTRL` to fire. If the
+pistol is not your thing, cheat with `idkfa` and press `5` for a nice surprise.
+Pause the game with `ESC`. `iddqd` for god mode.
 
+Cheat codes found here: https://doom.fandom.com/wiki/Doom_Cheat_Codes
+
+# ![kubedoom namespace](assets/tigervnc.png)
+
+# ![kubedoom namespace](assets/doom.jpg)
+
+
+
+
+```
+To connect run:  
+```
+```console
 $ vncviewer viewer localhost:5900
-
 
 ```
 
@@ -161,20 +182,6 @@ $ podman run -it -p5901:5900/tcp \
   --env "KUBECONFIG=/tmp/.kube/config" --name kubedoom
   kubedoom:latest
 ```
-
-### Attaching a VNC Client  (Step -- 07)
-
-Now start a VNC viewer and connect to `localhost:5900`. The password is `idbehold`:
-```console
-$ vncviewer viewer localhost:5901
-```
-You should now see DOOM! Now if you want to get the job done quickly enter the
-cheat `idspispopd` and walk through the wall on your right. You should be
-greeted by your pods as little pink monsters. Press `CTRL` to fire. If the
-pistol is not your thing, cheat with `idkfa` and press `5` for a nice surprise.
-Pause the game with `ESC`. `iddqd` for god mode.
-
-Cheat codes found here: https://doom.fandom.com/wiki/Doom_Cheat_Codes
 
 ### Killing namespaces
 
