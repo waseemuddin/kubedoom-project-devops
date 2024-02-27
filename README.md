@@ -26,6 +26,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 4.[TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
+# ![kubedoom Diagram](assets/kubedoomdiagram.png)
 # ![DOOM](assets/doom.jpg)
 
 
@@ -73,7 +74,7 @@ Creating cluster "kind" ...
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
-![Kind Master and worker node ](image.png)
+![Kind Master and worker node ](kindnode.png)
 
 kubectl cluster-info --context kind-kind
 
@@ -95,7 +96,7 @@ deployment.apps/kubedoom created
 serviceaccount/kubedoom created
 clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 ```
-![kubedoom namespace](image-1.png)
+![kubedoom namespace](kubedoom.png)
 
 
 To connect run:  (Step -- 06)
