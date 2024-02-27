@@ -12,9 +12,9 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
 
 This is project can be implement on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
 
- Local Machine/VM <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
-
-
+1.Local Machine/VM <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
+2.Docker Installed [link](https://docs.docker.com/engine/install/ubuntu/)
+3.[Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [kubeadm] (https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 Install Kind quickly with:
 `./install-prereqs.sh`
 
