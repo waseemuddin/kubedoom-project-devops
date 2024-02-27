@@ -24,10 +24,9 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 3.[Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) Installation. (Install Kind quickly with:
 `./install-prereqs.sh`)
 
-4. [TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
+4.[TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
 # ![kubedoom Diagram](assets/kubedoomdiagram.png)
-
 # ![DOOM](assets/doom.jpg)
 
 
