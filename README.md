@@ -31,10 +31,10 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 
 # Step ----- 01  
-# ------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
-
+```console
 #Basic command to make sure all are update
 
 sudo apt update
@@ -54,10 +54,10 @@ sudo ufw allow 22/tcp
 
 sudo -i
 swapoff - a
-
+```
 
 # Step ----- 02  
-# -------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 
 Running Kubedoom inside Kubernetes
@@ -105,7 +105,7 @@ clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 
 
 # Step ----- 03  
-# -------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 Build the image with `docker build --build-arg=TARGETARCH=amd64 . -t kubedoom` while in this directory. Then run:
 
