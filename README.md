@@ -1,5 +1,5 @@
-# Kube DOOM - 2024
-
+# Kube DOOM - 2023-24
+# Kube DOOM Project for learning purposes
 This is a fork of [storax/kubedoom](https://github.com/storax/kubedoom). I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.
 
 Install Kind quickly with:
@@ -16,6 +16,7 @@ slightly modified Doom, forked from https://github.com/gideonred/dockerdoom,
 which was forked from psdoom.
 
 ![DOOM](assets/doom.jpg)
+![kubedoom Diagram](assets/kubedoomdiagram.png)
 
 ## Running Locally
 
