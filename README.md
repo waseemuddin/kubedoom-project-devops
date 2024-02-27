@@ -118,15 +118,12 @@ $ docker run -p5801:5800 \
   -v ~/.kube:/root/.kube \
   --rm -it --name kubedoom \
   kubedoom:latest
+```
+Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to deleting pods in a single namespace
 
 # ![kubedoom namespace](assets/dockerrun.png)
 
 # ![kubedoom namespace](assets/pods.png)
-
-
-```
-Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to deleting pods in a single namespace
-
 
 
 
