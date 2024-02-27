@@ -15,7 +15,7 @@ This is a fork of the excellent
 slightly modified Doom, forked from https://github.com/gideonred/dockerdoom,
 which was forked from psdoom.
 
-![DOOM](assets/doom.jpg)
+# ![DOOM](assets/doom.jpg)
 ![kubedoom Diagram](assets/kubedoomdiagram.png)
 
 ## Running Locally
