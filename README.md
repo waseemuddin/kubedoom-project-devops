@@ -30,33 +30,34 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 # ![DOOM](assets/doom.jpg)
 
 
-Step ----- 01  
--------------------------------------------------------------------------
+# Step ----- 01  
+# ------------------------------------------------------------------------
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
 
-# Basic command to make sure all are update
+#Basic command to make sure all are update
 
 sudo apt update
 sudo apt-get update
 
-# Check IP 
+#Check IP 
 
 ifconfig 
 ip --brief addr show
 
-# Check firewall 
+#Check firewall 
 
 sudo ufw status
 sudo ufw allow 22/tcp
 
-# swapoff
+#swapoff
+
 sudo -i
 swapoff - a
 
 
-Step ----- 02  
--------------------------------------------------------------------------
+# Step ----- 02  
+# -------------------------------------------------------------------------
 
 
 Running Kubedoom inside Kubernetes
@@ -103,8 +104,8 @@ clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 # ![kubedoom namespace](assets/kubedoom.png)
 
 
-Step ----- 03  
--------------------------------------------------------------------------
+# Step ----- 03  
+# -------------------------------------------------------------------------
 
 Build the image with `docker build --build-arg=TARGETARCH=amd64 . -t kubedoom` while in this directory. Then run:
 
