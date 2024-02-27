@@ -74,7 +74,7 @@ Creating cluster "kind" ...
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
-![Kind Master and worker node ](kindnode.png)
+# ![Kind Master and worker node ](assets/kindnode.png)
 
 kubectl cluster-info --context kind-kind
 
@@ -96,7 +96,7 @@ deployment.apps/kubedoom created
 serviceaccount/kubedoom created
 clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 ```
-![kubedoom namespace](kubedoom.png)
+# ![kubedoom namespace](assets/kubedoom.png)
 
 
 To connect run:  (Step -- 06)
