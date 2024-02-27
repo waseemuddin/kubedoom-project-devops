@@ -123,11 +123,22 @@ Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to
 
 # ![kubedoom namespace](assets/dockerrun.png)
 
+Step ----- 04  
+-------------------------------------------------------------------------
+
+
+Deploy some Nginx pods to your cluster:
+
+`kubectl apply -f k8s/nginx-deployment.yaml`
+
+Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
+
+You can refresh the dashboard as you kill the pods from Kubedoom and expand upon this to track other metrics and applications in your cluster.
+
 # ![kubedoom namespace](assets/pods.png)
 
 
-
-Step --- 04
+Step --- 05
 ---------------------------------------------------------
 
 ### Attaching a VNC Client  (Step -- 07)
@@ -277,12 +288,3 @@ prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (15m ago)   25m   1
 
 So I would enter `http://10.244.1.3:9090` as my data source. Save and test this.
 
-### Nginx Dashoard Example (Step --- 05)
-
-Deploy some Nginx pods to your cluster:
-
-`kubectl apply -f k8s/nginx-deployment.yaml`
-
-Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
-
-You can refresh the dashboard as you kill the pods from Kubedoom and expand upon this to track other metrics and applications in your cluster.
