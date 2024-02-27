@@ -31,6 +31,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 
 Step ----- 01  
+-------------------------------------------------------------------------
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
 
@@ -52,6 +53,11 @@ sudo ufw allow 22/tcp
 # swapoff
 sudo -i
 swapoff - a
+
+
+Step ----- 02  
+-------------------------------------------------------------------------
+
 
 Running Kubedoom inside Kubernetes
 
@@ -89,13 +95,32 @@ provided in this repository:
 # goto manifest and apply 
 
 $ kubectl apply -k manifest/ 
-
 namespace/kubedoom created
 deployment.apps/kubedoom created
 serviceaccount/kubedoom created
 clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 
 # ![kubedoom namespace](assets/kubedoom.png)
+
+
+Step ----- 03  
+-------------------------------------------------------------------------
+
+Build the image with `docker build --build-arg=TARGETARCH=amd64 . -t kubedoom` while in this directory. Then run:
+
+```console  (step 04)
+$ docker run -p5801:5800 \
+  -e NAMESPACE=default \
+  --net=host \
+  -v ~/.kube:/root/.kube \
+  --rm -it --name kubedoom \
+  kubedoom:latest
+```
+Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to deleting pods in a single namespace
+
+
+
+
 ```
 To connect run:  (Step -- 06)
 ```
@@ -119,19 +144,6 @@ In order to run locally you will need to
 2. Attach a VNC client to the appropriate port (5901)
 
 ### With Docker (Step -- 03)
-
-Build the image with `docker build --build-arg=TARGETARCH=amd64 . -t kubedoom` while in this directory. Then run:
-
-```console  (step 04)
-$ docker run -p5801:5800 \
-  -e NAMESPACE=default \
-  --net=host \
-  -v ~/.kube:/root/.kube \
-  --rm -it --name kubedoom \
-  kubedoom:latest
-```
-
-Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to deleting pods in a single namespace
 
 ### With Podman
 
