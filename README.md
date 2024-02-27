@@ -2,13 +2,18 @@
 
 This repo is contain about the Kube Doom project for learning and implementing the Kubernetes and Docker
 
-The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus)& [storax/kubedoom](https://github.com/storax/kubedoom).
+The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [storax/kubedoom](https://github.com/storax/kubedoom).
 
  I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.
 
  The following steps by step guide is to implement the KubeDoom Project
 
- <b>Prequistics Requirements</b> 
+ <b>Prerequisites Requirements</b> 
+
+This is project can be implement on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
+
+ Local Machine/VM <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
+
 
 Install Kind quickly with:
 `./install-prereqs.sh`
