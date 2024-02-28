@@ -46,7 +46,6 @@ swapoff - a
 ```
 
 ### Step 2: Steup Kubernetes Cluster (Kind)
--------------------------------------------------------------------------
 
 Running Kubedoom inside Kubernetes
 
@@ -77,7 +76,7 @@ Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/qui
 Set your Kube context with: `kubectl cluster-info --context kind-kind`
 
 This will spin up a 2 node cluster inside docker, with port 5900 exposed from the worker node. Then run kubedoom inside the cluster by applying the manifest
-provided in this repository
+provided in this repository.
 The Kubernetes-Manifests-Files directory holds Kubernetes manifests for deploying your application on cluster.
 
 ``` shell
@@ -91,15 +90,15 @@ clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 # ![kubedoom namespace](assets/kubedoom.png)
 
 
-# Step ----- 03  
--------------------------------------------------------------------------
+### Step 3: Docker Build
 
 Build the image with `docker build --build-arg=TARGETARCH=amd64 . -t kubedoom` while in this directory. Then run:
 
 # ![kubedoom namespace](assets/dockerimg.png)
 
 
-```console  (step 04)
+``` shell 
+#docker run command and and attached pods
 $ docker run -p5801:5800 \
   -e NAMESPACE=default \
   --net=host \
@@ -111,9 +110,8 @@ Optionally, if you set `-e NAMESPACE={your namespace}` you can limit Kubedoom to
 
 # ![kubedoom namespace](assets/dockerrun.png)
 
-Step ----- 04  
--------------------------------------------------------------------------
 
+### Step 4: Docker Build
 
 Deploy some Nginx pods to your cluster:
 
@@ -126,15 +124,14 @@ You can refresh the dashboard as you kill the pods from Kubedoom and expand upon
 # ![kubedoom namespace](assets/pods.png)
 
 
-Step --- 05
----------------------------------------------------------
-
-### Attaching a VNC Client  (Step -- 07)
+### Step 5: Attaching a VNC Client
 
 Now start a VNC viewer and connect to `localhost:5900`. The password is `idbehold`:
-```console
+
+``` shell 
 $ vncviewer viewer localhost:5901
 ```
+
 You should now see DOOM! Now if you want to get the job done quickly enter the
 cheat `idspispopd` and walk through the wall on your right. You should be
 greeted by your pods as little pink monsters. Press `CTRL` to fire. If the
@@ -146,8 +143,6 @@ Cheat codes found here: https://doom.fandom.com/wiki/Doom_Cheat_Codes
 # ![kubedoom namespace](assets/tigervnc.png)
 
 # ![kubedoom namespace](assets/doom.jpg)
-
-
 
 
 ```
