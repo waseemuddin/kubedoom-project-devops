@@ -27,7 +27,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 # ![DOOM](assets/doom.jpg)
 
 
-### Step 1: Step Update VM/Ubuntu
+### Step 1: Update VM/Ubuntu
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
 ``` shell
@@ -45,19 +45,17 @@ sudo -i
 swapoff - a
 ```
 
-# Step ----- 02  
+### Step 2: Steup Kubernetes Cluster (Kind)
 -------------------------------------------------------------------------
-
 
 Running Kubedoom inside Kubernetes
 
 Install kind master and worker node
 
-See the example in the `/manifest` directory. You can quickly test it using
-[kind](https://github.com/kubernetes-sigs/kind). Create a cluster with the
+See the example in the `/manifest` directory. You can quickly test it using [kind](https://github.com/kubernetes-sigs/kind). Create a cluster with the
 example config from this repository:
 
-```console
+``` shell
 $ kind create cluster --config kind-config.yaml
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.25.3) 🖼
@@ -73,22 +71,22 @@ You can now use your cluster with:
 kubectl cluster-info --context kind-kind
 Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
-# ![Kind Master and worker node ](assets/kindnode.png)
 
+# ![Kind Master and worker node ](assets/kindnode.png)
 
 Set your Kube context with: `kubectl cluster-info --context kind-kind`
 
-This will spin up a 2 node cluster inside docker, with port 5900 exposed from
-the worker node. Then run kubedoom inside the cluster by applying the manifest
-provided in this repository:
+This will spin up a 2 node cluster inside docker, with port 5900 exposed from the worker node. Then run kubedoom inside the cluster by applying the manifest
+provided in this repository
+The Kubernetes-Manifests-Files directory holds Kubernetes manifests for deploying your application on cluster.
 
-# goto manifest and apply 
-
+``` shell
 $ kubectl apply -k manifest/ 
 namespace/kubedoom created
 deployment.apps/kubedoom created
 serviceaccount/kubedoom created
 clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
+```
 
 # ![kubedoom namespace](assets/kubedoom.png)
 
