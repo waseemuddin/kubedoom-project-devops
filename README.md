@@ -18,12 +18,9 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
 This is project can be implemented on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
 
 - Local Machine(VM) <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
-
-- Docker Installed [link](https://docs.docker.com/engine/install/ubuntu/)
-
+- Docker Installation [link](https://docs.docker.com/engine/install/ubuntu/)
 - [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) Installation. (Install Kind quickly with:
 `./install-prereqs.sh`)
-
 - [TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
 # ![kubedoom Diagram](assets/kubedoomdiagram.png)
@@ -33,24 +30,17 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 ## Update VM (Step 01) 
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
-```console
+``` shell
 #Basic command to make sure all are update
-
 sudo apt update
 sudo apt-get update
-
 #Check IP 
-
 ifconfig 
 ip --brief addr show
-
 #Check firewall 
-
 sudo ufw status
 sudo ufw allow 22/tcp
-
 #swapoff
-
 sudo -i
 swapoff - a
 ```
