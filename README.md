@@ -13,7 +13,7 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
 
  The following steps by step guide is to implement the KubeDoom Project
 
- ## Prerequisites Requirements
+ ## Prerequisites
 
 This is project can be implemented on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
 
@@ -24,7 +24,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 - [TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
 # ![kubedoom Diagram](assets/kubedoomdiagram.png)
-# ![DOOM](assets/doom.jpg)
+# ![podskilling](assets/podskilling.gif)
 
 
 ### Step 1: Update VM/Ubuntu
@@ -154,7 +154,7 @@ $ vncviewer viewer localhost:5900
 
 # ![kubedoom namespace](assets/doompods.jpg)
 
-![Three-Tier Banner](assets/podskilling.gif)
+![podskilling](assets/podskilling.gif)
 
 Kubedoom requires a service account with permissions to list all pods and delete
 them and uses kubectl 1.25.3.
