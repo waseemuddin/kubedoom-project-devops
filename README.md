@@ -13,18 +13,18 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
 
  The following steps by step guide is to implement the KubeDoom Project
 
- <b>Prerequisites Requirements</b> 
+ ## Prerequisites Requirements
 
 This is project can be implemented on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
 
-1.Local Machine(VM) <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
+- Local Machine(VM) <a href = "https://releases.ubuntu.com/22.04/">(Ubuntu 22.04)</a>
 
-2.Docker Installed [link](https://docs.docker.com/engine/install/ubuntu/)
+- Docker Installed [link](https://docs.docker.com/engine/install/ubuntu/)
 
-3.[Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) Installation. (Install Kind quickly with:
+- [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) Installation. (Install Kind quickly with:
 `./install-prereqs.sh`)
 
-4.[TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
+- [TigerVNC Viewer](https://installati.one/install-tigervnc-viewer-ubuntu-22-04/)
 
 # ![kubedoom Diagram](assets/kubedoomdiagram.png)
 # ![DOOM](assets/doom.jpg)
