@@ -31,7 +31,6 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 
 ## Update VM (Step 01) 
-------------------------------------------------------------------------
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
 ```console
