@@ -152,6 +152,7 @@ $ vncviewer viewer localhost:5900
 
 ### Step 6: Kubedoom Live snapshots
 
+# ![kubedoom namespace](assets/doompods.jpg)
 
 
 Kubedoom requires a service account with permissions to list all pods and delete
