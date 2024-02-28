@@ -154,7 +154,7 @@ $ vncviewer viewer localhost:5900
 
 # ![kubedoom namespace](assets/doompods.jpg)
 
-![Three-Tier Banner](assets/podskill.gif)
+![Three-Tier Banner](assets/podskilling.gif)
 
 Kubedoom requires a service account with permissions to list all pods and delete
 them and uses kubectl 1.25.3.
