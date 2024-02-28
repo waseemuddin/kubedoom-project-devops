@@ -27,7 +27,7 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 # ![DOOM](assets/doom.jpg)
 
 
-## Update VM (Step 01) 
+### Step 1: Step Update VM/Ubuntu
 
 After installation of VM (ubuntu), please make sure your sytstem is updated
 ``` shell
