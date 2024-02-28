@@ -117,8 +117,6 @@ Deploy some Nginx pods to your cluster:
 
 `kubectl apply -f k8s/nginx-deployment.yaml`
 
-Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
-
 You can refresh the dashboard as you kill the pods from Kubedoom and expand upon this to track other metrics and applications in your cluster.
 
 # ![kubedoom namespace](assets/pods.png)
@@ -144,17 +142,24 @@ Cheat codes found here: https://doom.fandom.com/wiki/Doom_Cheat_Codes
 
 # ![kubedoom namespace](assets/doom.jpg)
 
-
 ```
 To connect run:  
 ```
-```console
+``` shell 
 $ vncviewer viewer localhost:5900
 
 ```
 
+### Step 6: Kubedoom Live snapshots
+
+
+
 Kubedoom requires a service account with permissions to list all pods and delete
 them and uses kubectl 1.25.3.
+
+
+
+
 
 
 ## Running Locally
@@ -164,7 +169,6 @@ In order to run locally you will need to
 1. Run the kubedoom container
 2. Attach a VNC client to the appropriate port (5901)
 
-### With Docker (Step -- 03)
 
 ### With Podman
 
@@ -176,6 +180,9 @@ $ podman run -it -p5901:5900/tcp \
   --env "KUBECONFIG=/tmp/.kube/config" --name kubedoom
   kubedoom:latest
 ```
+
+
+
 
 ### Killing namespaces
 
@@ -192,6 +199,9 @@ $ docker run -p5901:5900 \
   -mode namespaces
 ```
 
+
+
+
 ## Building Kubedoom
 
 The repository contains a Dockerfile to build the kubedoom image. You have to
@@ -201,8 +211,13 @@ example `amd64` or `arm64`.
 ```console
 $ docker build --build-arg=TARGETARCH=amd64 -t kubedoom .
 ```
-
 To change the default VNC password, use `--build-arg=VNCPASSWORD=differentpw`.
+
+
+
+
+
+Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
 
 ## Deploying Prometheus  (Step -- 08)
 
