@@ -159,7 +159,9 @@ $ vncviewer viewer localhost:5900
 
 Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
 
+
 ### Step 7: Deploying Prometheus 
+
 
 Create a `monitoring` namespace to keep things tidy.
 
@@ -188,6 +190,7 @@ To run in background:
 Prometheus graph display command.
 
 `rate(container_cpu_usage_seconds_total{namespace="default", container="nginx"}[30s]) * 100`
+
 
 
 ### Step 8: Deploying Grafana
