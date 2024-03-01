@@ -9,7 +9,7 @@ This repo is contain about the Kube Doom project for learning and implementing t
 
 The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [storax/kubedoom](https://github.com/storax/kubedoom).
 
- /*I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.*/
+ **I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.**
 
  The following steps by step guide is to implement the KubeDoom Project
 
