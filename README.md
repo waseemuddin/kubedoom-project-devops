@@ -150,12 +150,81 @@ $ vncviewer viewer localhost:5900
 
 ```
 
-### Step 6: Kubedoom Live snapshots
+### Step 6: Kubedoom demo
 
 # ![podskilling](assets/podskilling.gif)
 
 # ![kubedoom namespace](assets/doompods.jpg)
 
+
+Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
+
+### Step 7: Deploying Prometheus 
+
+Create a `monitoring` namespace to keep things tidy.
+
+`kubectl create namespace monitoring`
+
+Deploy Prometheus to scrape and store metrics for your cluster with:
+
+`kubectl apply -f k8s/prometheus.yaml -n monitoring`
+
+List the Prometheus pod name and IP address.
+
+``` shell 
+$ kubectl get pods -o wide -n monitoring
+NAME                                     READY   STATUS    RESTARTS      AGE   IP           NODE          NOMINATED NODE   READINESS GATES
+prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (15m ago)   25m   10.244.1.3   kind-worker   <none>           <none>
+```
+
+In a separate terminal run the below command to port-forward and you'll be able to access Prometheus on `http://localhost:8080`:
+
+`kubectl port-forward -n monitoring prometheus-deployment-75cff7d89f-w422q 8080:9090`
+
+To run in background:
+
+`kubectl port-forward -n monitoring prometheus-deployment-75cff7d89f-w422q 8080:9090 &`
+
+Prometheus graph display command.
+
+`rate(container_cpu_usage_seconds_total{namespace="default", container="nginx"}[30s]) * 100`
+
+
+### Step 8: Deploying Grafana
+  
+Deploy Grafana to graph our metrics from Prometheus with:
+
+`kubectl apply -f k8s/grafana.yaml -n monitoring`
+
+In another terminal, list the pod names and port-forward from one of the pods:
+
+``` shell 
+$ kubectl get pods -n monitoring
+NAME                                     READY   STATUS    RESTARTS      AGE
+grafana-5469c64c7d-ddz4r                 1/1     Running   1 (20m ago)   30m
+grafana-5469c64c7d-xdlmw                 1/1     Running   1 (20m ago)   30m
+prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (20m ago)   30m
+
+$ kubectl port-forward -n monitoring grafana-5469c64c7d-ddz4r 3000
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
+```
+
+Grafana should now be reachable at `http://localhost:3000`.
+
+Log in with username `admin` and password `admin`.
+
+Once you are logged in, you will need to go to the Settings (gear icon bottom left) and edit the `Data sources`.
+
+Change the URL in the settings from `http://prometheus-service.monitoring.svc:8080` to `http://<Prometheus Pod IP>:9090`. Use the below command to get the Prometheus pod IP.
+
+``` shell 
+$ kubectl get pods -o wide -n monitoring
+NAME                                     READY   STATUS    RESTARTS      AGE   IP           NODE          NOMINATED NODE   READINESS GATES
+prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (15m ago)   25m   10.244.1.3   kind-worker   <none>           <none>
+```
+
+So I would enter `http://10.244.1.3:9090` as my data source. Save and test this.
 
 
 Kubedoom requires a service account with permissions to list all pods and delete
@@ -219,72 +288,5 @@ To change the default VNC password, use `--build-arg=VNCPASSWORD=differentpw`.
 
 
 
-Create a dashboard in Grafana to monitor the Nginx containers. To do this open Grafana at `http://localhost:3000` and login. Make sure you have your data source set to your Prometheus pod from the previous step. From the left hand menu, create a new dashboard and add a panel. Select the panels dropdown menu, select `Inspect` and then select `Panel JSON`. Here you will be able to delete the current JSON and replace it with JSON from the grafana folder `./grafana/nginx-panel.json`. Save and apply this and you should be able to see the CPU usage of the current deployed pods.
 
-## Deploying Prometheus  (Step -- 08)
-
-Create a `monitoring` namespace to keep things tidy.
-
-`kubectl create namespace monitoring`
-
-Deploy Prometheus to scrape and store metrics for your cluster with:
-
-`kubectl apply -f k8s/prometheus.yaml -n monitoring`
-
-List the Prometheus pod name and IP address.
-
-```
-$ kubectl get pods -o wide -n monitoring
-NAME                                     READY   STATUS    RESTARTS      AGE   IP           NODE          NOMINATED NODE   READINESS GATES
-prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (15m ago)   25m   10.244.1.3   kind-worker   <none>           <none>
-```
-
-In a separate terminal run the below command to port-forward and you'll be able to access Prometheus on `http://localhost:8080`:
-
-`kubectl port-forward -n monitoring prometheus-deployment-75cff7d89f-w422q 8080:9090`
-
-To run in background:
-
-`kubectl port-forward -n monitoring prometheus-deployment-75cff7d89f-w422q 8080:9090 &`
-
-Prometheus graph display command.
-
-`rate(container_cpu_usage_seconds_total{namespace="default", container="nginx"}[30s]) * 100`
-
-
-## Deploying Grafana  (Step -- 09)
-  
-Deploy Grafana to graph our metrics from Prometheus with:
-
-`kubectl apply -f k8s/grafana.yaml -n monitoring`
-
-In another terminal, list the pod names and port-forward from one of the pods:
-
-```
-$ kubectl get pods -n monitoring
-NAME                                     READY   STATUS    RESTARTS      AGE
-grafana-5469c64c7d-ddz4r                 1/1     Running   1 (20m ago)   30m
-grafana-5469c64c7d-xdlmw                 1/1     Running   1 (20m ago)   30m
-prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (20m ago)   30m
-
-$ kubectl port-forward -n monitoring grafana-5469c64c7d-ddz4r 3000
-Forwarding from 127.0.0.1:3000 -> 3000
-Forwarding from [::1]:3000 -> 3000
-```
-
-Grafana should now be reachable at `http://localhost:3000`.
-
-Log in with username `admin` and password `admin`.
-
-Once you are logged in, you will need to go to the Settings (gear icon bottom left) and edit the `Data sources`.
-
-Change the URL in the settings from `http://prometheus-service.monitoring.svc:8080` to `http://<Prometheus Pod IP>:9090`. Use the below command to get the Prometheus pod IP.
-
-```
-$ kubectl get pods -o wide -n monitoring
-NAME                                     READY   STATUS    RESTARTS      AGE   IP           NODE          NOMINATED NODE   READINESS GATES
-prometheus-deployment-75cff7d89f-w422q   1/1     Running   1 (15m ago)   25m   10.244.1.3   kind-worker   <none>           <none>
-```
-
-So I would enter `http://10.244.1.3:9090` as my data source. Save and test this.
 
