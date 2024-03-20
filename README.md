@@ -12,7 +12,7 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
  <!--I've updated the Ubuntu and Kubernetes versions and included a metrics+monitoring k8s stack with Prometheus and Grafana. This is to help better visualize this demo.** -->
 
 
- The following steps are involved  to implement the KubeDoom Project
+ The following steps are involved  in implementing the KubeDoom Project
 
  ## Prerequisites
 
