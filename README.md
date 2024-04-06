@@ -5,7 +5,7 @@
 The next level of chaos engineering is here! Kill pods inside your Kubernetes
 cluster by shooting them in Doom!
 
-This repo is contain about the Kube Doom project for learning and implementing the Kubernetes and killing the pods inside your kubernetes cluster.
+This repo is contain about the Kube Doom project for learning and implementing the Kubernetes and killing the pods inside your Kubernetes cluster.
 
 The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [storax/kubedoom](https://github.com/storax/kubedoom).
 
@@ -30,9 +30,9 @@ This is project can be implemented on your local machine (VM), AWS Cloud or any 
 
 ### Step 1: Update VM/Ubuntu
 
-After installation of VM (ubuntu), please make sure your sytstem is updated
+After installation of VM (ubuntu), please make sure your system is updated
 ``` shell
-#Basic command to make sure all are update
+#Basic command to make sure all are updated
 sudo apt update
 sudo apt-get update
 #Check IP 
