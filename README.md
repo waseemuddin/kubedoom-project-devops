@@ -14,7 +14,7 @@ The credit goes to [iiDKx](https://github.com/iiDKx/kubedoom-prometheus) & [stor
 
  The following steps are involved  in implementing the KubeDoom Project
 
- ## Prerequisites
+ ## Prerequisites ##
 
 This is project can be implemented on your local machine (VM), AWS Cloud or any other cloud provider which suites you.
 
