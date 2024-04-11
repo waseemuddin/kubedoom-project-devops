@@ -2,8 +2,7 @@
 
 ## Kill Kubernetes pods using Id's Doom!
 
-The next level of chaos engineering is here! Kill pods inside your Kubernetes
-cluster by shooting them in Doom!
+The next level of chaos engineering is here! Kill pods inside your Kubernetes cluster by shooting them in Doom!
 
 This repo is contain about the Kube Doom project for learning and implementing the Kubernetes and killing the pods inside your Kubernetes cluster.
 
